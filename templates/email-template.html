@@ -1,0 +1,14 @@
+	<!-- email-template.html -->
+	<!DOCTYPE html>
+	<html>
+	<body>
+        {{range .}}
+        <li>{{.Name}}  {{.Size}}</li>
+
+            {{range .SubDirectories}}
+            <li>{{.Name}}  {{.Size}}</li>
+            {{end}}
+            {{end}}    
+        
+	</body>
+	</html>
