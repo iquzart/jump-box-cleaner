@@ -1,4 +1,2 @@
 cleanup:
   path: "/tmp/testdir"
-Email:
-  template: ./template/template.html
