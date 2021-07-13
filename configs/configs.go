@@ -9,12 +9,20 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
-// Config struct for webapp config
+// Config struct
 type Config struct {
 	Cleanup struct {
-		// Disk clean up path
 		Path string `yaml:"path"`
 	} `yaml:"cleanup"`
+	NotifyEmail struct {
+		Sendgrid     bool   `yaml:"sendgrid"`
+		SendgridAPI  string `yaml:"sendgridAPI"`
+		FromEmail    string `yaml:"fromEmail"`
+		FromName     string `yaml:"fromName"`
+		ToEMail      string `yaml:"toEMail"`
+		ToName       string `yaml:"toName"`
+		EmailSubject string `yaml:"emailSubject"`
+	} `yaml:"NotifyEmail"`
 }
 
 // NewConfig returns a new decoded Config struct

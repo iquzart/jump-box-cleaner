@@ -1,7 +1,6 @@
 package main
 
 import (
-	"encoding/json"
 	"io/fs"
 	"jump-box-cleaner/configs"
 	"jump-box-cleaner/helpers"
@@ -55,10 +54,9 @@ func main() {
 
 	}
 	log.Println("Completed checking directoy sizes")
-	js, _ := json.MarshalIndent(results, "", "  ")
-	log.Printf("%s\n", js)
 
-	notification.EmailTemplate(results)
+	log.Println("Send Email Notification")
+	notification.EmailNotification(cfg, results)
 
 }
 
