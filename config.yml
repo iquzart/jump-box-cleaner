@@ -1,12 +1,11 @@
 cleanup:
-  path: "/home/iqbal/Downloads"
+  path: "c:\users"
 
 NotifyEmail:
   sendgrid: true
-  sendgridAPI: ""
-  fromEmail: iquzart@hotmail.com
-  fromName: "Muhammed Iqbal"
-  toEMail: iquzart@gmail.com
-  toName: "Muhammed Iqbal"
-  emailSubject: "Jump Server Disk Usage"
-
+  sendgridAPI:
+  fromEmail:
+  fromName: 
+  toEMail: 
+  toName: 
+  emailSubject:
