@@ -3,7 +3,7 @@ cleanup:
 
 NotifyEmail:
   sendgrid: true
-  sendgridAPI: "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"
+  sendgridAPI: ""
   fromEmail: iquzart@hotmail.com
   fromName: "Muhammed Iqbal"
   toEMail: iquzart@gmail.com
