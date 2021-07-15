@@ -3,12 +3,13 @@ package main
 import (
 	"io/fs"
 	"jump-box-cleaner/configs"
-	"jump-box-cleaner/helpers"
 	"jump-box-cleaner/models"
 	"jump-box-cleaner/notification"
 	"log"
 	"os"
 	"path/filepath"
+
+	bytesize "github.com/inhies/go-bytesize"
 )
 
 func main() {
@@ -89,7 +90,7 @@ func getDirectories(items []fs.DirEntry) []string {
 	return directories
 }
 
-func dirSize(path string) float64 {
+func dirSize(path string) bytesize.ByteSize {
 	sizes := make(chan int64)
 	readSize := func(path string, file os.FileInfo, err error) error {
 		if err != nil || file == nil {
@@ -111,11 +112,7 @@ func dirSize(path string) float64 {
 		size += s
 	}
 
-	sizeGBF := float64(size) / 1024.0 / 1024.0 / 1024.0
-
-	//sizeGB = math.Round(sizeGB)
-	sizeGB := helpers.RoundUp(sizeGBF, 2)
-	return sizeGB
+	return bytesize.New(float64(size))
 }
 
 func check(err error) {
