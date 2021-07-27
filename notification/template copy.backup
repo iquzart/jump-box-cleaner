@@ -7,11 +7,11 @@ import (
 	"html/template"
 	"jump-box-cleaner/configs"
 	"jump-box-cleaner/models"
-	"log"
+	"os"
 )
 
 // construct email HTML email
-func EmailNotification(cfg *configs.Config, results []models.Data) {
+func EmailNotification(cfg *configs.Config, results []models.ParentDirectories) {
 
 	t, err := template.ParseFiles("templates/email-template.html")
 	if err != nil {
