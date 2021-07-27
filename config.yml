@@ -1,5 +1,5 @@
 cleanup:
-  path: "c:\users"
+  path: c:\users
 
 NotifyEmail:
   sendgrid: true
