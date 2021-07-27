@@ -45,6 +45,6 @@ func main() {
 
 	log.Println("Completed checking directoy sizes")
 
-	log.Println("Send Email Notification")
 	notification.EmailNotification(cfg, results)
+
 }

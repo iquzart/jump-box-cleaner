@@ -23,7 +23,6 @@ func ViaSendGrid(cfg *configs.Config, body bytes.Buffer) {
 		log.Println(err)
 	} else {
 		log.Println(response.StatusCode)
-		log.Println(response.Body)
-		log.Println(response.Headers)
+
 	}
 }

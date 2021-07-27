@@ -8,9 +8,25 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"sort"
 
 	"github.com/inhies/go-bytesize"
 )
+
+// BySize implements sort.Interface based on Size field.
+type BySize []models.ParentDirectories
+
+func (a BySize) Len() int {
+	return len(a)
+}
+
+func (a BySize) Less(i, j int) bool {
+	return a[i].Size > a[j].Size
+}
+
+func (a BySize) Swap(i, j int) {
+	a[i], a[j] = a[j], a[i]
+}
 
 func GetParentdirs(directories []string, cfg *configs.Config) []models.ParentDirectories {
 	pdResults := make([]models.ParentDirectories, 0)
@@ -38,6 +54,8 @@ func GetParentdirs(directories []string, cfg *configs.Config) []models.ParentDir
 		)
 
 	}
+	// sort the by size
+	sort.Sort(BySize(pdResults))
 	return pdResults
 }
 

@@ -27,6 +27,9 @@ func EmailNotification(cfg *configs.Config, results []models.Data) {
 	t.Execute(&body, results)
 
 	if cfg.NotifyEmail.Sendgrid {
+		log.Println("Using SendGrid as email relay")
 		ViaSendGrid(cfg, body)
+	} else {
+		log.Println("Please a relay services for email")
 	}
 }
